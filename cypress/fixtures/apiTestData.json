@@ -1,0 +1,5 @@
+{
+  "validProductId": 1,
+  "invalidProductId": 9999,
+  "maxExpectedResponseTimeMs": 3000
+}

@@ -1,0 +1,35 @@
+{
+  "name": "qa-automation-ecommerce-cypress",
+  "version": "1.0.0",
+  "description": "Cypress QA automation portfolio project covering UI + API testing (SauceDemo + Fake Store API) with smoke/regression suites and maintainable framework design.",
+  "main": "index.js",
+  "scripts": {
+  "cy:open": "cypress open",
+  "cy:run": "cypress run",
+  "test:smoke:ui": "cypress run --spec \"cypress/e2e/ui/smoke/**/*.cy.js\"",
+  "test:regression:ui": "cypress run --spec \"cypress/e2e/ui/regression/**/*.cy.js\"",
+  "test:smoke:api": "cypress run --spec \"cypress/e2e/api/smoke/**/*.cy.js\"",
+  "test:regression:api": "cypress run --spec \"cypress/e2e/api/regression/**/*.cy.js\"",
+  "test:all": "cypress run --spec \"cypress/e2e/**/*.cy.js\"",
+  "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/mochawesome-output.json",
+  "report:generate": "marge cypress/reports/mochawesome-output.json -f automation-report -o cypress/reports/mochawesome"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhanageganesh43-arch/qa-automation-ecommerce-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhanageganesh43-arch/qa-automation-ecommerce-cypress/issues"
+  },
+  "homepage": "https://github.com/bhanageganesh43-arch/qa-automation-ecommerce-cypress#readme",
+  "devDependencies": {
+    "cypress": "^15.12.0",
+    "dotenv": "^17.3.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}
