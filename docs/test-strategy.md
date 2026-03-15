@@ -18,4 +18,3 @@
 ## Test Types
 - UI: login, inventory, cart, checkout, logout
 - API: products, categories, carts, users
-- Integration checks: selected UI/API data consistency
