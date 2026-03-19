@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:08.245Z",
+    "end": "2026-03-19T04:46:09.570Z",
+    "duration": 1325,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1a0bbb82-a5c0-4926-bf16-89c235ce98f7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\regression\\products-api.regression.cy.js",
+      "file": "cypress\\e2e\\api\\regression\\products-api.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f957a630-d8e8-497c-894d-f6039c797b3a",
+          "title": "API Regression - Products",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should handle invalid product id gracefully",
+              "fullTitle": "API Regression - Products should handle invalid product id gracefully",
+              "timedOut": null,
+              "duration": 312,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"apiTestData\").then(data => {\n  cy.request({\n    method: \"GET\",\n    url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCT_BY_ID(data.invalidProductId)}`,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    // Fake Store API may return {} for invalid ID\n    expect(response.body).to.not.have.property(\"id\");\n    expect(Object.keys(response.body)).to.have.length(0);\n  });\n});",
+              "err": {},
+              "uuid": "8e5b49be-a8d6-43f1-b5eb-3a8864eaedba",
+              "parentUUID": "f957a630-d8e8-497c-894d-f6039c797b3a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate all products have required fields",
+              "fullTitle": "API Regression - Products should validate all products have required fields",
+              "timedOut": null,
+              "duration": 396,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  response.body.forEach(product => (0, _validators.validateProductShape)(product));\n});",
+              "err": {},
+              "uuid": "37c1becf-9fc1-4e78-b5df-7ea0801e1fc3",
+              "parentUUID": "f957a630-d8e8-497c-894d-f6039c797b3a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate product price is a positive number",
+              "fullTitle": "API Regression - Products should validate product price is a positive number",
+              "timedOut": null,
+              "duration": 482,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  response.body.forEach(product => {\n    expect(product.price).to.be.a(\"number\");\n    expect(product.price).to.be.greaterThan(0);\n  });\n});",
+              "err": {},
+              "uuid": "07304d28-e00b-4bf5-9158-1306ef260875",
+              "parentUUID": "f957a630-d8e8-497c-894d-f6039c797b3a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8e5b49be-a8d6-43f1-b5eb-3a8864eaedba",
+            "37c1becf-9fc1-4e78-b5df-7ea0801e1fc3",
+            "07304d28-e00b-4bf5-9158-1306ef260875"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1190,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

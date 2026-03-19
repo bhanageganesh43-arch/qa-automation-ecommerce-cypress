@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:03.193Z",
+    "end": "2026-03-19T04:46:05.041Z",
+    "duration": 1848,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cd8e8871-2234-495b-b9dc-8fe0099d28c3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\regression\\categories-api.regression.cy.js",
+      "file": "cypress\\e2e\\api\\regression\\categories-api.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f7d7987-34b0-49f3-81d0-3ef05ada5f88",
+          "title": "API Regression - Categories",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return categories list with 200 and non-empty values",
+              "fullTitle": "API Regression - Categories should return categories list with 200 and non-empty values",
+              "timedOut": null,
+              "duration": 409,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.CATEGORIES}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\").and.not.be.empty;\n  response.body.forEach(category => {\n    expect(category).to.be.a(\"string\").and.not.be.empty;\n  });\n});",
+              "err": {},
+              "uuid": "29fc3ed6-08df-4c6f-9219-3caced36cf7b",
+              "parentUUID": "9f7d7987-34b0-49f3-81d0-3ef05ada5f88",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return products for each category",
+              "fullTitle": "API Regression - Categories should return products for each category",
+              "timedOut": null,
+              "duration": 1378,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.CATEGORIES}`\n}).then(categoryResponse => {\n  const categories = categoryResponse.body;\n  categories.forEach(category => {\n    cy.request({\n      method: \"GET\",\n      url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS_BY_CATEGORY(category)}`\n    }).then(productsResponse => {\n      expect(productsResponse.status).to.eq(200);\n      expect(productsResponse.body).to.be.an(\"array\");\n      productsResponse.body.forEach(product => {\n        expect(product.category).to.eq(category);\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "e32594ce-41f4-4635-9d09-959492507c76",
+              "parentUUID": "9f7d7987-34b0-49f3-81d0-3ef05ada5f88",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "29fc3ed6-08df-4c6f-9219-3caced36cf7b",
+            "e32594ce-41f4-4635-9d09-959492507c76"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1787,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

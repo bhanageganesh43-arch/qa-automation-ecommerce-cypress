@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:44.354Z",
+    "end": "2026-03-19T04:46:48.914Z",
+    "duration": 4560,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c76b20d3-5b35-4e69-bff5-94d24951f288",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\regression\\login.regression.cy.js",
+      "file": "cypress\\e2e\\ui\\regression\\login.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "35d9d66c-e971-4580-af62-b2a75ed4aa24",
+          "title": "UI Regression - Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should show error for locked user",
+              "fullTitle": "UI Regression - Login should show error for locked user",
+              "timedOut": null,
+              "duration": 1586,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const {\n  username,\n  password\n} = this.usersData.lockedUser;\n_LoginPage.default.login(username, password);\n_LoginPage.default.getError().should(\"contain.text\", this.messages.lockedUserError);",
+              "err": {},
+              "uuid": "d0441d03-b901-49bb-87d2-484b37f64bf6",
+              "parentUUID": "35d9d66c-e971-4580-af62-b2a75ed4aa24",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error for invalid credentials",
+              "fullTitle": "UI Regression - Login should show error for invalid credentials",
+              "timedOut": null,
+              "duration": 1116,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const {\n  username,\n  password\n} = this.usersData.invalidUser;\n_LoginPage.default.login(username, password);\n_LoginPage.default.getError().should(\"contain.text\", this.messages.invalidUserError);",
+              "err": {},
+              "uuid": "ebfbb31e-0f04-4812-a17c-ad790ff5b671",
+              "parentUUID": "35d9d66c-e971-4580-af62-b2a75ed4aa24",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should not login with empty username and password",
+              "fullTitle": "UI Regression - Login should not login with empty username and password",
+              "timedOut": null,
+              "duration": 563,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.clickLogin();\n_LoginPage.default.getError().should(\"be.visible\");",
+              "err": {},
+              "uuid": "264924cd-6972-4583-a700-9e9f4f8cecc3",
+              "parentUUID": "35d9d66c-e971-4580-af62-b2a75ed4aa24",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should keep user on inventory page after successful login",
+              "fullTitle": "UI Regression - Login should keep user on inventory page after successful login",
+              "timedOut": null,
+              "duration": 1125,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const {\n  username,\n  password\n} = this.usersData.validUser;\n_LoginPage.default.login(username, password);\ncy.url().should(\"include\", _constants.URLS.INVENTORY);",
+              "err": {},
+              "uuid": "20dcc7d3-6e80-4ce4-8a38-d6f7acb1f167",
+              "parentUUID": "35d9d66c-e971-4580-af62-b2a75ed4aa24",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d0441d03-b901-49bb-87d2-484b37f64bf6",
+            "ebfbb31e-0f04-4812-a17c-ad790ff5b671",
+            "264924cd-6972-4583-a700-9e9f4f8cecc3",
+            "20dcc7d3-6e80-4ce4-8a38-d6f7acb1f167"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4390,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

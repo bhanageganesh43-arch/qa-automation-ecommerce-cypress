@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:37.232Z",
+    "end": "2026-03-19T04:46:41.289Z",
+    "duration": 4057,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ae846586-0900-43fa-99be-9361d68a46a8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\regression\\cart.regression.cy.js",
+      "file": "cypress\\e2e\\ui\\regression\\cart.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "41e948bd-6e42-4674-a1da-5977edb78c4e",
+          "title": "UI Regression - Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should remove product from cart successfully",
+              "fullTitle": "UI Regression - Cart should remove product from cart successfully",
+              "timedOut": null,
+              "duration": 2120,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.addProductToCartByName(productName);\n_InventoryPage.default.openCart();\ncy.contains(\".inventory_item_name\", productName).should(\"be.visible\");\n_CartPage.default.removeItemByName(productName);\ncy.contains(\".inventory_item_name\", productName).should(\"not.exist\");",
+              "err": {},
+              "uuid": "c4c8d11e-1f5f-473d-a12e-a66c885e0766",
+              "parentUUID": "41e948bd-6e42-4674-a1da-5977edb78c4e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should retain cart item after navigating back to inventory",
+              "fullTitle": "UI Regression - Cart should retain cart item after navigating back to inventory",
+              "timedOut": null,
+              "duration": 1817,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.addProductToCartByName(productName);\n_InventoryPage.default.openCart();\ncy.get('[data-test=\"continue-shopping\"]').click();\ncy.get(\".shopping_cart_badge\").should(\"have.text\", \"1\");",
+              "err": {},
+              "uuid": "34866eea-f589-4e29-9f30-900eb11a098a",
+              "parentUUID": "41e948bd-6e42-4674-a1da-5977edb78c4e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c4c8d11e-1f5f-473d-a12e-a66c885e0766",
+            "34866eea-f589-4e29-9f30-900eb11a098a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3937,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

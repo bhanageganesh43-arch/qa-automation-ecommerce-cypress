@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:51.974Z",
+    "end": "2026-03-19T04:46:54.317Z",
+    "duration": 2343,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38253aa7-20e7-4432-b7ac-4c961faa0a9a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\regression\\logout.regression.cy.js",
+      "file": "cypress\\e2e\\ui\\regression\\logout.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "de11c373-86e0-4355-b9dd-e87df1ece36a",
+          "title": "UI Regression - Logout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should logout successfully and return to login page",
+              "fullTitle": "UI Regression - Logout should logout successfully and return to login page",
+              "timedOut": null,
+              "duration": 2255,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_HeaderComponent.default.openMenu();\ncy.get('[data-test=\"logout-sidebar-link\"]').should(\"be.visible\");\n_HeaderComponent.default.clickLogout();\ncy.url().should(\"eq\", \"https://www.saucedemo.com/\");\ncy.get('[data-test=\"login-button\"]').should(\"be.visible\");",
+              "err": {},
+              "uuid": "e0bd16e8-6bfd-4c11-a360-682f2f153fd5",
+              "parentUUID": "de11c373-86e0-4355-b9dd-e87df1ece36a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e0bd16e8-6bfd-4c11-a360-682f2f153fd5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2255,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

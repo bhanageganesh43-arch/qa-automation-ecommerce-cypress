@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:12.527Z",
+    "end": "2026-03-19T04:46:13.442Z",
+    "duration": 915,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ff7b49b6-b624-434a-964a-44466c7a2917",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\regression\\users-api.regression.cy.js",
+      "file": "cypress\\e2e\\api\\regression\\users-api.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eb9eec04-6208-4980-95bb-cc62ae42de04",
+          "title": "API Regression - Users",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return users list with required fields",
+              "fullTitle": "API Regression - Users should return users list with required fields",
+              "timedOut": null,
+              "duration": 406,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.USERS}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\").and.not.be.empty;\n  response.body.forEach(user => {\n    expect(user).to.have.property(\"id\");\n    expect(user).to.have.property(\"email\");\n    expect(user).to.have.property(\"username\");\n  });\n});",
+              "err": {},
+              "uuid": "5537579b-d0ff-43da-943d-c4442ce0938f",
+              "parentUUID": "eb9eec04-6208-4980-95bb-cc62ae42de04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return user by id with address details",
+              "fullTitle": "API Regression - Users should return user by id with address details",
+              "timedOut": null,
+              "duration": 437,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.USER_BY_ID(1)}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.id).to.eq(1);\n  expect(response.body).to.have.property(\"address\");\n  expect(response.body.address).to.have.property(\"city\");\n});",
+              "err": {},
+              "uuid": "079217f9-2439-4487-9c44-8eddfcd4f550",
+              "parentUUID": "eb9eec04-6208-4980-95bb-cc62ae42de04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5537579b-d0ff-43da-943d-c4442ce0938f",
+            "079217f9-2439-4487-9c44-8eddfcd4f550"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 843,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

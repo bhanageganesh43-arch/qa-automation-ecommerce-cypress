@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:57.334Z",
+    "end": "2026-03-19T04:47:02.349Z",
+    "duration": 5015,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "83ff1813-b4ae-474c-981a-5c36377c6bc0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\regression\\product-listing.regression.cy.js",
+      "file": "cypress\\e2e\\ui\\regression\\product-listing.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a62db5a5-e285-435e-bdf7-473e8a83c697",
+          "title": "UI Regression - Product Listing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display inventory items with name and price",
+              "fullTitle": "UI Regression - Product Listing should display inventory items with name and price",
+              "timedOut": null,
+              "duration": 1688,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.getInventoryItems().should(\"have.length.greaterThan\", 0);\ncy.get(\".inventory_item_name\").first().should(\"be.visible\");\ncy.get(\".inventory_item_price\").first().should(\"be.visible\");",
+              "err": {},
+              "uuid": "4a55b10e-8319-4f4b-b053-3f8a5dabd722",
+              "parentUUID": "a62db5a5-e285-435e-bdf7-473e8a83c697",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should sort products by price low to high",
+              "fullTitle": "UI Regression - Product Listing should sort products by price low to high",
+              "timedOut": null,
+              "duration": 1597,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.sortBy(\"lohi\");\ncy.get(\".inventory_item_price\").then($prices => {\n  const values = [...$prices].map(el => Number(el.innerText.replace(\"$\", \"\").trim()));\n  const sorted = [...values].sort((a, b) => a - b);\n  expect(values).to.deep.equal(sorted);\n});",
+              "err": {},
+              "uuid": "4fedb18c-be9f-4f97-a74d-02856dec8d34",
+              "parentUUID": "a62db5a5-e285-435e-bdf7-473e8a83c697",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should sort products by name Z to A",
+              "fullTitle": "UI Regression - Product Listing should sort products by name Z to A",
+              "timedOut": null,
+              "duration": 1562,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.sortBy(\"za\");\ncy.get(\".inventory_item_name\").then($names => {\n  const values = [...$names].map(el => el.innerText.trim());\n  const sorted = [...values].sort().reverse();\n  expect(values).to.deep.equal(sorted);\n});",
+              "err": {},
+              "uuid": "1b34f0e0-a619-465b-8e25-cfcfe1ffbb27",
+              "parentUUID": "a62db5a5-e285-435e-bdf7-473e8a83c697",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4a55b10e-8319-4f4b-b053-3f8a5dabd722",
+            "4fedb18c-be9f-4f97-a74d-02856dec8d34",
+            "1b34f0e0-a619-465b-8e25-cfcfe1ffbb27"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4847,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

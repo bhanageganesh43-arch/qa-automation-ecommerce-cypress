@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-19T04:46:16.702Z",
+    "end": "2026-03-19T04:46:21.387Z",
+    "duration": 4685,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3468cade-42ad-4179-901e-c199bdc5dd67",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\smoke\\add-to-cart.smoke.cy.js",
+      "file": "cypress\\e2e\\ui\\smoke\\add-to-cart.smoke.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "38d59cb8-3040-42de-b063-fab5420a0853",
+          "title": "UI Smoke - Add to Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add one product to cart and verify item in cart",
+              "fullTitle": "UI Smoke - Add to Cart should add one product to cart and verify item in cart",
+              "timedOut": null,
+              "duration": 4599,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.default.addProductToCartByName(productName);\ncy.get(\".shopping_cart_badge\").should(\"have.text\", \"1\");\n_InventoryPage.default.openCart();\n_CartPage.default.getCartItems().should(\"have.length\", 1);\ncy.contains(\".inventory_item_name\", productName).should(\"be.visible\");",
+              "err": {},
+              "uuid": "2e5ac001-3119-406e-8ed3-85808d0706cc",
+              "parentUUID": "38d59cb8-3040-42de-b063-fab5420a0853",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2e5ac001-3119-406e-8ed3-85808d0706cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4599,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
