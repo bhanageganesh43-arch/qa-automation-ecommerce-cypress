@@ -10,6 +10,11 @@ This project covers:
 
 ---
 
+## Version History
+- **2026-05-19** — Updated project metadata, package version, and documentation to reflect the latest revisions.
+
+---
+
 ## Project Objectives
 
 - Showcase maintainable and scalable Cypress automation design

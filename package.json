@@ -1,6 +1,6 @@
 {
   "name": "qa-automation-ecommerce-cypress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cypress QA automation portfolio project covering UI + API testing (SauceDemo + Fake Store API) with smoke/regression suites and maintainable framework design.",
   "main": "index.js",
   "scripts": {
