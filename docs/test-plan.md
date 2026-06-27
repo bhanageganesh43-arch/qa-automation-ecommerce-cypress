@@ -1,19 +1,52 @@
 # Test Plan
 
+**Last Updated:** 2026-06-27  
+**Version:** 1.2.0
+
 ## Environments
-- UI: https://www.saucedemo.com
-- API: https://fakestoreapi.com
+
+| Environment | URL                          |
+|-------------|------------------------------|
+| UI (SUT)    | https://www.saucedemo.com    |
+| API (SUT)   | https://fakestoreapi.com     |
+
+## Scope
+
+### In Scope
+- UI smoke and regression for SauceDemo core flows
+- API smoke and regression for Fake Store API (products, categories, carts, users)
+- Sorting validation (all 4 sort options)
+- Response time SLA assertions (≤ 2000ms)
+- Product schema and value-level validation
+
+### Out of Scope
+- Performance / load testing
+- Cross-browser testing (Chrome is primary)
+- Mobile viewport testing (planned future iteration)
 
 ## Entry Criteria
-- Dependencies installed
-- Cypress config ready
-- Test data files available
+- `npm install` completed successfully
+- `cypress.config.js` and `.env` configured
+- Fixture files present under `cypress/fixtures/`
 
 ## Exit Criteria
-- Smoke suite passing
-- No blocker/high severity issues in regression run
-- Report generated and attached in repo artifacts (when needed)
+- All smoke tests passing (0 failures)
+- Regression run with no blocker or critical severity failures
+- Mochawesome HTML report generated and reviewed
 
-## Risks
-- Demo app data instability
-- Third-party API latency spikes
+## Test Coverage Summary
+
+| Suite              | Tests | Status  |
+|--------------------|-------|---------|
+| UI Smoke           | 3     | Passing |
+| UI Regression      | 16+   | Passing |
+| API Smoke          | 3     | Passing |
+| API Regression     | 12+   | Passing |
+
+## Risks & Mitigations
+
+| Risk                              | Mitigation                                  |
+|-----------------------------------|---------------------------------------------|
+| Demo app data instability         | Retry logic (`runMode: 2`) in cypress.config |
+| Third-party API latency spikes    | Response time assertions with 2s threshold  |
+| Environment unavailability        | Smoke suite fast-fails for early signal     |

@@ -1,6 +1,6 @@
 {
   "name": "qa-automation-ecommerce-cypress",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "Cypress QA automation portfolio project covering UI + API testing (SauceDemo + Fake Store API) with smoke/regression suites and maintainable framework design.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,10 @@
   "test:regression:api": "cypress run --spec \"cypress/e2e/api/regression/**/*.cy.js\"",
   "test:all": "cypress run --spec \"cypress/e2e/**/*.cy.js\"",
   "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/mochawesome-output.json",
-  "report:generate": "marge cypress/reports/mochawesome-output.json -f automation-report -o cypress/reports/mochawesome"
+  "report:generate": "marge cypress/reports/mochawesome-output.json -f automation-report -o cypress/reports/mochawesome",
+  "test:smoke": "cypress run --spec \"cypress/e2e/**/smoke/**/*.cy.js\"",
+  "test:regression": "cypress run --spec \"cypress/e2e/**/regression/**/*.cy.js\"",
+  "report:open": "open cypress/reports/mochawesome/automation-report.html"
 },
   "repository": {
     "type": "git",
