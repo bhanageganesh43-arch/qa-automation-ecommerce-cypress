@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-27T08:23:14.896Z",
+    "end": "2026-06-27T08:23:21.343Z",
+    "duration": 6447,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2a5dfccd-6c0d-44ff-b8eb-6f4e671b379d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\regression\\products-api.regression.cy.js",
+      "file": "cypress\\e2e\\api\\regression\\products-api.regression.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+          "title": "API Regression - Products",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should handle invalid product id gracefully",
+              "fullTitle": "API Regression - Products should handle invalid product id gracefully",
+              "timedOut": null,
+              "duration": 535,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"apiTestData\").then(data => {\n  cy.request({\n    method: \"GET\",\n    url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCT_BY_ID(data.invalidProductId)}`,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body).to.not.have.property(\"id\");\n    expect(Object.keys(response.body)).to.have.length(0);\n  });\n});",
+              "err": {},
+              "uuid": "1882e9b3-074a-4cd3-9986-d252267c835a",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate all products have required fields",
+              "fullTitle": "API Regression - Products should validate all products have required fields",
+              "timedOut": null,
+              "duration": 2354,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  response.body.forEach(product => (0, _validators.validateProductShape)(product));\n});",
+              "err": {},
+              "uuid": "df2abc61-9a01-4b2d-a1a7-615a1ae486e6",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate all product field values are well-formed",
+              "fullTitle": "API Regression - Products should validate all product field values are well-formed",
+              "timedOut": null,
+              "duration": 1280,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  expect(response.status).to.eq(200);\n  response.body.forEach(product => (0, _validators.validateProductValues)(product));\n});",
+              "err": {},
+              "uuid": "69723665-aaf9-44eb-be8a-b85ee7742b15",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate product price is a positive number",
+              "fullTitle": "API Regression - Products should validate product price is a positive number",
+              "timedOut": null,
+              "duration": 584,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  response.body.forEach(product => {\n    expect(product.price).to.be.a(\"number\");\n    expect(product.price).to.be.greaterThan(0);\n  });\n});",
+              "err": {},
+              "uuid": "8c9f2b9b-c686-4964-b2e3-5008e89550aa",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should respond within acceptable time",
+              "fullTitle": "API Regression - Products should respond within acceptable time",
+              "timedOut": null,
+              "duration": 681,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  (0, _validators.validateResponseTime)(response, _constants.API.MAX_RESPONSE_TIME_MS);\n});",
+              "err": {},
+              "uuid": "70fa69c5-6981-426f-91bc-38d043bf485a",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return no more than expected product count",
+              "fullTitle": "API Regression - Products should return no more than expected product count",
+              "timedOut": null,
+              "duration": 439,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${Cypress.env(\"apiBaseUrl\")}${_apiRoutes.API_ROUTES.PRODUCTS}`\n}).then(response => {\n  expect(response.body.length).to.be.lte(_constants.API.PRODUCTS_LIMIT);\n});",
+              "err": {},
+              "uuid": "480d1a72-d49d-4fc0-8793-3bdcf08af3dc",
+              "parentUUID": "670cf58b-5bc8-4883-a2a2-edb68ac19e67",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1882e9b3-074a-4cd3-9986-d252267c835a",
+            "df2abc61-9a01-4b2d-a1a7-615a1ae486e6",
+            "69723665-aaf9-44eb-be8a-b85ee7742b15",
+            "8c9f2b9b-c686-4964-b2e3-5008e89550aa",
+            "70fa69c5-6981-426f-91bc-38d043bf485a",
+            "480d1a72-d49d-4fc0-8793-3bdcf08af3dc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5873,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
